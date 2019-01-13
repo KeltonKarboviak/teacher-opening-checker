@@ -1,0 +1,6 @@
+repos:
+  - repo: https://github.com/KeltonKarboviak/pre-commit-mirrors-travis-lint
+    rev: v1.8.9
+    hooks:
+      - id: travis
+        stages: [push]
