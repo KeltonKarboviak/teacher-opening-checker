@@ -1,0 +1,16 @@
+language: python
+python: 3.6
+before_install:
+- pip install -U pip pipenv
+install:
+- pipenv install --deploy --system
+script:
+- pipenv run main.py
+cache:
+  directories:
+  - "$HOME/.cache/pip"
+  - "$HOME/.cache/pipenv"
+notifications:
+  slack:
+    secure: Urp+1ZPIid+fb6EW+8Zxulz5I8wZVnEc2Jrd0ehaNukRH8iC9sM/kZUuSpKpdFTJZwpgf67Fbggps1A+BHZZLMk+SHZSrOGvKnXr7EtUz2YoBzQWvMZQo9xxYJ3jqI25BuWs5EM+DQrnfV1jGqfeTK0qpPyI+t8ZJW9uzSYZmLc0jBB+FhmsHuWrY2mg46A4P1MPkFbmieZ2ldXXMDRsETbskXGEvlcwvYDiDMZZhbZeZYdg7F1XxsLvY+gcK/Bf19K/Y8U/iHh5nkNOuaspdEQoA7rEcSB2OP+woQN7aE4sYZ8mkjdTLj8gf4vzQMbBv7R+opPdLyXsNi55I00fBoW2FBkn4gFExZGVP2KnPGjZ1IJHI+Zth6Sze9zj+/09BDuvIvd778Vxl2aEDvIzSXcCkaldXlaL0wtr0mUPqtdxUKxpGKbGdeqRqHyiWh1YUsgPZFz5En6mQFk4OiWjKODZJf4G2dtmI0WzEJ2sTo+jSNaF6lRh2F2gTACAuUnks1qwM3sJZOOl8FHoNM23IGI6atZp927ERfuJYpnwr2hI9ZQ1VKZUAc16T0JnhWqJ9j4yQt5iQ/KKixV6GDIIb/jfuyfxqe7ljecGLhNtOUyc6W7lsDRNXHVX9c+lZApRm2EfMnudLMzGT6fq2y316P2uKaQGaHtRTl3VhDkRrm8=
+    on_success: always
