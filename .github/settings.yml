@@ -1,4 +1,4 @@
-_extends: .github # v0.1.0
+_extends: .github # v0.2.0
 
 repository:
   description: 'Automatically checks several county school job opening pages for entries that match specific keywords'
