@@ -6,7 +6,7 @@ before_install:
 install:
   - pipenv install --deploy --system
 script:
-  - pipenv run main.py
+  - pipenv run python main.py
 
 cache:
   directories:
