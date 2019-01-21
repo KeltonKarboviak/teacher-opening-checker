@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 
+import json
+
 from requests_html import HTMLSession
 
-from parsers import WilliamsonCountyParser
+from parsers import MauryCountyParser, WilliamsonCountyParser
 
 
-KEYWORDS = ['band', 'music']
+KEYWORDS = ['band', 'choir', 'chorus', 'music']
 SCHOOL_LOOKUP = {
-    # 'maury': (
-    #     MauryCountyParser,
-    #     '',
-    # ),
+    'maury': (
+        MauryCountyParser,
+        'https://ats4.searchsoft.net/ats/job_board?APPLICANT_TYPE_ID=00000001&COMPANY_ID=MA000230',
+    ),
     'williamson': (
         WilliamsonCountyParser,
         'https://selfservice.wcs.edu/MSS/employmentopportunities/default.aspx',
@@ -21,6 +23,8 @@ SCHOOL_LOOKUP = {
 def main() -> int:
     session = HTMLSession()
     num_results = 0
+
+    print(f'Keywords = {json.dumps(KEYWORDS)}')
 
     for county, (parser_class, url) in SCHOOL_LOOKUP.items():
         print(f'Fetching HTML for {county.title()} County: {url}')

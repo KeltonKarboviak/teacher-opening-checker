@@ -31,3 +31,18 @@ class WilliamsonCountyParser(CountyParserBase):
             self.find_selector, containing=self.keywords
         )
         return map(self.text_getter, opening_elements)
+
+
+class MauryCountyParser(CountyParserBase):
+    county_name: str = 'maury'
+    find_selector: str = 'table tr'
+    text_getter = operator.attrgetter('text')
+
+    def __init__(self, keywords: List[str]):
+        self.keywords = keywords
+
+    def __call__(self, html_element: requests_html.HTML) -> Iterable[str]:
+        opening_elements = html_element.find(
+            self.find_selector, containing=self.keywords
+        )
+        return map(self.text_getter, opening_elements)
